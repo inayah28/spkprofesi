@@ -1,0 +1,104 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ judul }}</title>
+    {% include "snippets/style.html" %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <style type="text/css">
+        .bagi{
+            display: grid;
+            grid-template-columns: 70% 30%; 
+        }
+        .matkul{
+            display: grid;
+            grid-template-columns: 50% 50%; 
+        }
+
+        .bagi1{
+            display: grid;
+            grid-template-columns: 70% 30%; 
+        }
+        .kursus{
+            display: grid;
+            grid-template-columns: 50% 50%; 
+        }
+        
+    </style>
+  
+</head>
+<body>
+    {% include "snippets/navbar.html" %}
+    <div class="jumbotron jumbotron-fluid" style="padding-top: 10px;">
+      <div class="container text-center" style="padding-top: 80px;">
+        <h2 style="padding-bottom: 60px;">PROFESI : </h2>
+        <form method="POST" >
+            {% csrf_token %}
+                <select name='name_profesi' class="form-control" style="width: 35%; margin :0 auto;" >
+                    {% for p in Profesis %}
+                    <option >{{ p.profesi }}</option>
+                    {% endfor %}
+                </select> 
+                <br>
+            <button type="submit" class="btn btn-info" onclick="show()">CEK</button>
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding-left: 100px; padding-right: 650px; padding-top: 100px;">
+            <h3>MATA KULIAH YANG BERHUBUNGAN DENGAN PROFESI</h3>
+            <h5>{{profesi}}</h5>
+            <table class="table table-bordered table-striped table-light " >
+              <thead class="thead-dark text-center">
+                <tr>
+                  <th scope="col">NO</th>
+                  <!-- <th scope="col">KDMK</th> -->
+                  <th scope="col">MK</th>
+                  <th scope="col">semester</th>
+                  <th scope="col">PRESENTASE</th>
+                 </tr>
+              </thead>
+              <tbody>
+                {% for p_matkul in baru %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{p_matkul.matkul}}</td>
+                    <td>{{p_matkul.semester}}</td>
+                    <td>{{p_matkul.presentase}}</td>
+                </tr>
+                {% endfor %}            
+              </tbody>
+            </table>
+        </div>
+
+
+       <!-- <div style="padding-left: 100px; padding-right: 650px; padding-top: 100px;">
+            <h3>KURSUS YANG BERHUBUNGAN DENGAN PROFESI</h3>
+            <table class="table table-bordered table-striped table-light ">
+              <thead class="thead-dark text-center" >
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">KDMKR</th>
+                    <th scope="col">KURSUS</th>
+                    <th scope="col">PRESENTASE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for p_matkur in Profesi_Matkurs %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{p_matkur.kdmkr}}</td>
+                    <td>{{p_matkur.matkur}}</td>
+                    <td>{{p_matkur.presentase}}</td>
+                </tr>
+                {% endfor %}            
+              </tbody>
+            </table>
+        </div>
+        <br> -->
+          
+{% include "snippets/scripts.html" %}
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<title>{{ judul }}</title>
+    {% include "snippets/style.html" %}
+
+</head>
+<body>
+    {% include "snippets/navbar.html" %}
+        <div style="padding-left: 100px; padding-right: 650px; padding-top: 100px;">
+            <h3>MATA KULIAH YANG BERHUBUNGAN DENGAN PROFESI</h3>
+            <h5>{{profesi}}</h5>
+            <table class="table table-bordered table-striped table-light " >
+              <thead class="thead-dark text-center">
+                <tr>
+                  <th scope="col">NO</th>
+                  <th scope="col">KDMK</th>
+                  <th scope="col">MK</th>
+                  <th scope="col">semester</th>
+                  <th scope="col">PRESENTASE</th>
+                 </tr>
+              </thead>
+              <tbody>
+                {% for p_matkul in Profesi_Matkuls %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{p_matkul.kdmk}}</td>
+                    <td>{{p_matkul.matkul}}</td>
+                    <td>{{p_matkul.semester}}</td>
+                    <td>{{p_matkul.presentase}}</td>
+                </tr>
+                {% endfor %}            
+              </tbody>
+            </table>
+        </div>
+
+
+        <div style="padding-left: 100px; padding-right: 650px; padding-top: 100px;">
+            <h3>KURSUS YANG BERHUBUNGAN DENGAN PROFESI</h3>
+            <table class="table table-bordered table-striped table-light ">
+              <thead class="thead-dark text-center" >
+                <tr>
+                    <th scope="col">NO</th>
+                    <th scope="col">KDMKR</th>
+                    <th scope="col">KURSUS</th>
+                    <th scope="col">PRESENTASE</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for p_matkur in Profesi_Matkurs %}
+                <tr>
+                    <td scope="row">{{forloop.counter}}</td>
+                    <td>{{p_matkur.kdmkr}}</td>
+                    <td>{{p_matkur.matkur}}</td>
+                    <td>{{p_matkur.presentase}}</td>
+                </tr>
+                {% endfor %}            
+              </tbody>
+            </table>
+        </div>
+
+{% include "snippets/scripts.html" %}
+</body>
+</html>

@@ -1,0 +1,132 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help</title>
+    {% include "snippets/style.html" %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style type="text/css">
+        .matkul{
+            display: grid;
+            grid-template-columns: 35% 30% 35%; 
+        }
+    </style>
+</head>
+<body>
+    <div style="padding-left: 35px;" class="matkul">
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 1</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters1 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 25rem;">
+          <div class="card-header">Semester 2</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters2 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 3</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters3 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 4</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters4 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 25rem;">
+          <div class="card-header">Semester 5</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters5 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 6</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters6 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 7</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters7 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card border-primary mb-3" style="max-width: 30rem;">
+          <div class="card-header">Semester 8</div>
+          <div class="card-body text-primary">
+            <table>
+                <tbody>
+                    {% for post in Semesters8 %}
+                    <tr>
+                        <td>{{post.matkul}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
