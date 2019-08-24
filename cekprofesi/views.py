@@ -56,14 +56,14 @@ def index(request):
                 'WEB DEVELOPER':'cekprofesi/data/profesi/uk_wd.csv'          
             }
             data_rps = {
-                'cekprofesi/data/matkul/sap_ap1.csv':'IT045201',
-                'cekprofesi/data/matkul/sap_ap2.csv':'IT045202',
-                'cekprofesi/data/matkul/sap_ap3.csv':'IT045203',
-                'cekprofesi/data/matkul/sap_gk1.csv':'AK045205',
-                'cekprofesi/data/matkul/sap_gk2.csv':'AK045206',
-                'cekprofesi/data/matkul/sap_pbo.csv':'AK045213',
-                'cekprofesi/data/matkul/sap_skk.csv':'IT045237',
-                'cekprofesi/data/matkul/sap_rpl2.csv': 'AK045227'
+                'cekprofesi/data/matkul/sap_ap1.csv':('IT045201','ALGORITMA PEMROGRAMAN 1'),
+                'cekprofesi/data/matkul/sap_ap2.csv':('IT045202','ALGORITMA PEMROGRAMAN 2'),
+                'cekprofesi/data/matkul/sap_ap3.csv':('IT045203','ALGORITMA PEMROGRAMAN 3'),
+                'cekprofesi/data/matkul/sap_gk1.csv':('AK045205','GRAFIK KOMPUTER 1'),
+                'cekprofesi/data/matkul/sap_gk2.csv':('AK045206','GRAFIK KOMPUTER 2'),
+                'cekprofesi/data/matkul/sap_pbo.csv':('AK045213','PEMROGRAMAN BERBASIS OBJECT'),
+                'cekprofesi/data/matkul/sap_skk.csv':('IT045237','SISTEM KEAMANAN KOMPUTER'),
+                'cekprofesi/data/matkul/sap_rpl2.csv': ('AK04522','REKAYASA PERANGKAT LUNAK')
             }
 
             for profesi1, dataset_profesi in data_profesi.items():
@@ -120,7 +120,7 @@ def index(request):
 
             #insert matkul ke tabel Profesi_Matkul       
             for i in profesi_matkul:
-                insert_table = Profesi_Matkul(profesi=request.POST.get('name_profesi'),kdmk=Matkul.objects.filter(kdmk=i[0]).first(), presentase=hasil_percen)
+                insert_table = Profesi_Matkul(profesi=request.POST.get('name_profesi'),kdmk=Matkul.objects.filter(kdmk=i).first(), presentase=hasil_percen)
                 insert_table.save()
 
             matakuliah=Matkul.objects.filter(profesi_matkul__profesi=nama_profesi)
