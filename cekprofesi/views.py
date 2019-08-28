@@ -119,8 +119,8 @@ def index(request):
                     print('###\n\n')
 
             #insert matkul ke tabel Profesi_Matkul       
-            for i in profesi_matkul:
-                insert_table = Profesi_Matkul(profesi=request.POST.get('name_profesi'),kdmk=Matkul.objects.filter(kdmk=i).first(), presentase=hasil_percen)
+            for i in profesi_matkul:     
+                insert_table = ProfesiMatkul(profesi=request.POST.get('name_profesi'),kdmk=Matkul.objects.filter(kdmk=i[0]).first(), presentase=hasil_percen)
                 insert_table.save()
 
             matakuliah=Matkul.objects.filter(profesi_matkul__profesi=nama_profesi)
