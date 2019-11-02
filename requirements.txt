@@ -1,6 +1,6 @@
 Counter==1.0.0
 Django==1.11.22
-nltk==3.4.4
+nltk==3.4.5
 normalize==1.0.4
 pytz==2019.1
 richenum==1.2.1
